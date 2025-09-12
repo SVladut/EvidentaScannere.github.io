@@ -1,1 +1,1 @@
-[2025-09-13 01:37:21] ADAUGÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ANGAJAT Andrei\n[2025-09-13 01:37:26] ADAUGÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ANGAJAT Marius\n[2025-09-13 01:38:28] AJUSTARE TC la Andrei: +10 (total 10)\n[2025-09-13 01:50:07] Andrei PREDARE 1 x TC cÃÂÃÂtre Marius\n[2025-09-13 01:50:12] Andrei PREDARE 1 x TC cÃÂtre Marius\n[2025-09-13 01:50:25] Andrei PREDARE 1 x TC cÄtre Marius\n[2025-09-13 01:50:28] Andrei PREDARE 1 x TC către Marius
+
