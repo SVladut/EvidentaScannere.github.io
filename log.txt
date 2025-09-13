@@ -2,3 +2,4 @@
 [2025-09-13 12:14:34] Cozonac Ioan PREDARE 1 x UROVO catre Sarsama Vladut
 [2025-09-13 12:14:38] Cozonac Ioan PREDARE 1 x UROVO catre Sarsama Vladut
 [2025-09-13 12:14:39] Cozonac Ioan PREDARE 1 x UROVO catre Sarsama Vladut
+[2025-09-13 12:14:51] Cozonac Ioan PRIMIRE 1 x UROVO de la Sarsama Vladut
