@@ -7,85 +7,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b1020;
-      --card: #121a33;
-      --muted: #a1adc7;
-      --text: #e6ecff;
-      --accent: #7aa2ff;
-      --ok: #46d39a;
-      --warn: #ffb454;
-      --err: #ff6b6b;
-      --ring: #2a3a73;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background: radial-gradient(1200px 800px at 80% -10%, #1b2550 0%, #0b1020 60%), var(--bg);
-      color: var(--text);
-      padding: 24px;
-    }
-    h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: 0.2px; }
-    .sub { color: var(--muted); margin-bottom: 20px; }
-    .wrap { max-width: 1100px; margin: 0 auto; }
-    .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: start; }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid #202a54aa; border-radius: 16px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      backdrop-filter: blur(6px);
-    }
-    .card h2 { margin: 0 0 12px; font-size: 18px; }
-    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-    label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px; }
-    select, input[type="number"], input[type="text"], input[type="url"] {
-      width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--ring);
-      background: #0f1630; color: var(--text);
-      outline: none; transition: box-shadow .2s, border-color .2s;
-    }
-    select:focus, input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(122,162,255,0.2); }
-    .btn {
-      appearance: none; border: 1px solid #2b3a7a; background: #13204a; color: var(--text);
-      padding: 10px 14px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: transform .02s ease, filter .2s;
-    }
-    .btn:hover { filter: brightness(1.05); }
-    .btn:active { transform: translateY(1px); }
-    .btn.primary { background: linear-gradient(180deg, #2a49b8, #213a93); border-color: #2a49b8; }
-    .btn.ghost { background: transparent; }
-    .btn.warn { background: linear-gradient(180deg, #9a5a12, #7a470d); border-color: #a86a1a; }
-    .btn.danger { background: linear-gradient(180deg, #a52525, #7c1a1a); border-color: #a52525; }
-    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
-
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px dashed #253067; }
-    th { color: var(--muted); font-weight: 600; font-size: 12px; letter-spacing: .4px; text-transform: uppercase; }
-    tr:hover td { background: rgba(255,255,255,0.02); }
-    .qty { font-variant-numeric: tabular-nums; }
-    .pill { font-size: 11px; padding: 3px 8px; border-radius: 999px; border: 1px solid #2b3a7a; background: #101a3a; color: var(--muted); }
-    .pill.ok { color: #0be7a7; border-color: #0be7a7aa; background: #0f2d2a; }
-    .pill.warn { color: var(--warn); border-color: #ffb454aa; background: #2a2314; }
-
-    details { border-top: 1px dashed #2a356b; padding-top: 8px; }
-    summary { cursor: pointer; color: var(--muted); margin-bottom: 8px; }
-    pre { background: #0d152f; border: 1px solid #253067; border-radius: 12px; padding: 12px; overflow: auto; max-height: 280px; white-space: pre-wrap; }
-
-    .muted { color: var(--muted); }
-    .right { text-align: right; }
-    .spacer { height: 10px; }
-    .hr { height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0), #243268, rgba(255,255,255,0)); margin: 8px 0 12px; border: 0; }
-    .kpi { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
-    .kpi .card { padding: 12px; }
-    .kpi .val { font-size: 22px; font-weight: 700; }
-    .badge { font-size: 12px; border: 1px solid #2b3a7a; padding: 3px 8px; border-radius: 999px; background:#101a3a; color:#a1adc7; }
-    .status { font-size: 12px; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="wrap">
     <h1>📦 Evidență scannere <span class="badge" id="modeBadge">offline</span></h1>
-    <div class="sub">Site single‑file (HTML/CSS/JS) pentru gestionarea scannerelor (tipuri: <b>TC</b> și <b>UROVO</b>). Poate funcționa <b>offline</b> cu <code>localStorage</code> sau se poate sincroniza <b>online</b> cu un endpoint securizat (Cloudflare Worker) pentru a salva în repo GitHub (<code>evidenta.json</code> & <code>log.txt</code>).</div>
 
     <div class="kpi">
       <div class="card"><div class="muted">Total TC</div><div class="val" id="kpiTC">0</div></div>
@@ -143,9 +69,9 @@
           </div>
           <div class="btn-row" style="align-items:end">
             <button class="btn" id="btnAdd">Adaugă</button>
-            <button class="btn warn" id="btnReset">Reset demo</button>
           </div>
         </div>
+        <br><br><br>
         <details>
           <summary>Import / Export & Sincronizare</summary>
           <div class="row">
@@ -162,20 +88,8 @@
           <div class="btn-row">
             <button class="btn" id="btnExportJson">Exportă evidenta.json</button>
             <button class="btn" id="btnExportLog">Exportă log.txt</button>
-            <button class="btn" id="btnSyncNow">Sincronizează cu server</button>
           </div>
           <div class="spacer"></div>
-          <div class="row">
-            <div>
-              <label>URL endpoint (Cloudflare Worker)</label>
-              <input type="url" id="endpointUrl" placeholder="https://scanner-worker.example.workers.dev" />
-            </div>
-            <div style="display:flex; align-items:flex-end; gap:10px">
-              <button class="btn" id="btnSaveEndpoint">Salvează endpoint</button>
-              <span class="status" id="syncStatus"></span>
-            </div>
-          </div>
-          <div class="muted" style="margin-top:6px">Pe GitHub Pages, scrierea directă în fișiere din repo nu este posibilă fără backend/token. Folosește endpointul securizat pentru commit‑uri. Datele rămân și în <code>localStorage</code> ca fallback.</div>
         </details>
       </div>
 
@@ -201,254 +115,18 @@
           </tfoot>
         </table>
 
-        <div class="spacer"></div>
-        <h2>Log operațiuni</h2>
-        <pre id="logBox">(fără înregistrări)</pre>
+
+        
+      <div class="spacer"></div>
+      <h2>Log operatiuni</h2>
+      <div id="logWrap">
+          <div id="logList" class="log-list">(fara inregistrari)</div>
+      </div>
+
       </div>
     </div>
   </div>
 
-<script>
-(function(){
-  const LS_DATA = 'evidenta_scannere_data_v2';
-  const LS_LOG  = 'evidenta_scannere_log_v2';
-  const LS_ENDPOINT = 'evidenta_scannere_endpoint_v1';
-
-  const state = {
-    data: [], // [{id, nume, TC, UROVO}]
-    log: [],  // strings
-    history: [],
-    endpoint: '',
-    online: false,
-  };
-
-  // Helpers
-  const $ = (sel) => document.querySelector(sel);
-  const fmtDate = (d=new Date()) => {
-    const pad = (n) => String(n).padStart(2,'0');
-    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
-  };
-  const download = (filename, text) => {
-    const blob = new Blob([text], {type: 'text/plain;charset=utf-8'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href=url; a.download=filename; document.body.appendChild(a); a.click();
-    setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); },0);
-  };
-  const clone = (o) => JSON.parse(JSON.stringify(o));
-
-  // Storage
-  function saveLS(){
-    localStorage.setItem(LS_DATA, JSON.stringify(state.data));
-    localStorage.setItem(LS_LOG, JSON.stringify(state.log));
-    localStorage.setItem(LS_ENDPOINT, state.endpoint || '');
-  }
-  function loadLS(){
-    try{
-      const d = JSON.parse(localStorage.getItem(LS_DATA)||'null');
-      const l = JSON.parse(localStorage.getItem(LS_LOG)||'null');
-      const e = localStorage.getItem(LS_ENDPOINT)||'';
-      if (Array.isArray(d)) state.data=d; else demo();
-      if (Array.isArray(l)) state.log=l; else state.log=[];
-      state.endpoint = e; $('#endpointUrl').value = e;
-    }catch(_){ demo(); state.log=[]; }
-  }
-
-  function demo(){
-    state.data = [
-      { id: crypto.randomUUID?.() || ('id_'+Date.now()+Math.random()), nume: 'Andrei', TC: 10, UROVO: 2 },
-      { id: crypto.randomUUID?.() || ('id_'+Date.now()+Math.random()), nume: 'Mihai',  TC: 1,  UROVO: 0 },
-      { id: crypto.randomUUID?.() || ('id_'+Date.now()+Math.random()), nume: 'Elena',  TC: 0,  UROVO: 3 }
-    ];
-  }
-
-  function pushHistory(){
-    state.history.push({ data: clone(state.data), logLen: state.log.length });
-    if (state.history.length > 50) state.history.shift();
-  }
-  function undo(){
-    const prev = state.history.pop();
-    if (!prev) return false;
-    state.data = prev.data; state.log = state.log.slice(0, prev.logLen);
-    saveLS(); render(); return true;
-  }
-
-  // Rendering
-  function render(){
-    const op = $('#opOperator');
-    const dest = $('#opDest');
-    op.innerHTML=''; dest.innerHTML='';
-    const sorted = [...state.data].sort((a,b)=>a.nume.localeCompare(b.nume));
-    for(const p of sorted){
-      const o1=document.createElement('option'); o1.value=p.id; o1.textContent=p.nume; op.appendChild(o1);
-      const o2=document.createElement('option'); o2.value=p.id; o2.textContent=p.nume; dest.appendChild(o2);
-    }
-    const tb=$('#tbl tbody'); tb.innerHTML='';
-    let sumTC=0,sumU=0;
-    for(const p of sorted){
-      const tr=document.createElement('tr');
-      tr.innerHTML=`<td>${p.nume}</td><td class="right qty">${p.TC}</td><td class="right qty">${p.UROVO}</td><td class="right qty">${p.TC+p.UROVO}</td>`;
-      tb.appendChild(tr); sumTC+=p.TC; sumU+=p.UROVO;
-    }
-    $('#sumTC').textContent=sumTC; $('#sumUROVO').textContent=sumU; $('#sumTot').textContent=sumTC+sumU;
-    $('#kpiTC').textContent=sumTC; $('#kpiUROVO').textContent=sumU; $('#kpiAng').textContent=state.data.length;
-    $('#logBox').textContent = state.log.length ? state.log.join('\n') : '(fără înregistrări)';
-    if (op.value===dest.value && dest.options.length>1) dest.selectedIndex=(op.selectedIndex+1)%dest.options.length;
-    $('#modeBadge').textContent = state.online ? 'online' : 'offline';
-  }
-
-  // Sync API
-  async function fetchRemote(){
-    if (!state.endpoint) return false;
-    setStatus('Se încarcă din server...');
-    try{
-      const r = await fetch(state.endpoint + '/data', { cache:'no-store' });
-      if(!r.ok) throw new Error('HTTP '+r.status);
-      const json = await r.json();
-      if(Array.isArray(json.data)) state.data = json.data;
-      if(Array.isArray(json.log)) state.log = json.log;
-      state.online = true; setStatus('Sincronizat (pull).');
-      saveLS(); render();
-      return true;
-    }catch(e){
-      console.warn('fetchRemote error', e);
-      state.online = false; setStatus('Offline. Folosește localStorage.');
-      render(); return false;
-    }
-  }
-
-  async function pushRemote(message){
-    if (!state.endpoint) return false;
-    try{
-      const body = { data: state.data, log: state.log, authorName: currentUserName() || 'sistem', message: message||'update evidenta' };
-      const r = await fetch(state.endpoint + '/commit', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
-      if(!r.ok) throw new Error('HTTP '+r.status);
-      state.online = true; setStatus('Salvat în repo (commit).');
-      return true;
-    }catch(e){ console.warn('pushRemote error', e); setStatus('Eroare la commit. Datele au rămas local.'); state.online=false; return false; }
-  }
-
-  function setStatus(msg){ $('#syncStatus').textContent = msg; }
-  function currentUserName(){
-    const sel = $('#opOperator');
-    const id = sel.value; const p = state.data.find(x=>x.id===id);
-    return p?.nume || '';
-  }
-
-  // Business rules
-  async function applyOperation(){
-    const type = $('#opTip').value;
-    const scanner = $('#opScanner').value; // TC | UROVO
-    const qty = Math.max(1, parseInt($('#opQty').value||'1',10));
-    const opId = $('#opOperator').value;
-    const destId = $('#opDest').value;
-
-    const from = state.data.find(p=>p.id===opId);
-    const to = state.data.find(p=>p.id===destId);
-    if (!from || !to){ alert('Selectați operatorul și destinatarul.'); return; }
-
-    pushHistory();
-
-    const key = scanner;
-    let logLine = '';
-    if (type === 'PREDARE'){
-      if (from[key] < qty){ alert(`${from.nume} nu are suficiente scannere ${key}.`); state.history.pop(); return; }
-      if (from.id === to.id){ alert('Destinatarul trebuie să fie altă persoană.'); state.history.pop(); return; }
-      from[key] -= qty; to[key] += qty;
-      logLine = `[${fmtDate()}] ${from.nume} PREDARE ${qty} x ${key} către ${to.nume}`;
-    } else if (type === 'PRIMIRE'){
-      if (to[key] < qty){ alert(`${to.nume} nu are suficiente scannere ${key}.`); state.history.pop(); return; }
-      if (from.id === to.id){ alert('Sursa trebuie să fie altă persoană.'); state.history.pop(); return; }
-      to[key] -= qty; from[key] += qty;
-      logLine = `[${fmtDate()}] ${from.nume} PRIMIRE ${qty} x ${key} de la ${to.nume}`;
-    } else if (type === 'AJUSTARE'){
-      const sign = prompt('Introduceți noua valoare totală pentru ' + key + ' la ' + from.nume + ':', from[key]);
-      const newVal = Number(sign);
-      if (!Number.isFinite(newVal) || newVal<0){ alert('Valoare invalidă.'); state.history.pop(); return; }
-      const diff = newVal - from[key];
-      from[key] = newVal;
-      logLine = `[${fmtDate()}] AJUSTARE ${key} la ${from.nume}: ${diff>=0?'+':''}${diff} (total ${newVal})`;
-    }
-
-    state.log.push(logLine);
-    saveLS(); render();
-
-    if (state.endpoint){ await pushRemote(logLine); }
-  }
-
-  // Employee management
-  function addEmployee(){
-    const name = ($('#newName').value||'').trim();
-    if (!name){ alert('Introduceți un nume.'); return; }
-    if (state.data.some(p=>p.nume.toLowerCase()===name.toLowerCase())){ alert('Există deja un angajat cu acest nume.'); return; }
-    pushHistory();
-    state.data.push({ id: crypto.randomUUID?.() || ('id_'+Date.now()+Math.random()), nume: name, TC: 0, UROVO: 0 });
-    $('#newName').value='';
-    state.log.push(`[${fmtDate()}] ADAUGĂ ANGAJAT ${name}`);
-    saveLS(); render();
-  }
-
-  function resetDemo(){
-    if (!confirm('Resetați la datele demo? Aceasta va șterge evidența curentă.')) return;
-    pushHistory(); demo(); state.log = []; saveLS(); render();
-  }
-
-  // Import / Export
-  function exportJson(){ const json = JSON.stringify(state.data, null, 2); download('evidenta.json', json); }
-  function exportLog(){ const text = state.log.join('\n'); download('log.txt', text || '(fără înregistrări)'); }
-  function importJson(file){
-    const reader = new FileReader();
-    reader.onload = () => {
-      try{
-        const parsed = JSON.parse(reader.result);
-        if (!Array.isArray(parsed)) throw new Error('Format invalid');
-        for (const x of parsed){
-          if (!('id' in x && 'nume' in x && 'TC' in x && 'UROVO' in x)) throw new Error('Lipsesc câmpuri');
-          x.TC = Number(x.TC)||0; x.UROVO = Number(x.UROVO)||0;
-        }
-        pushHistory(); state.data = parsed; state.log.push(`[${fmtDate()}] IMPORT evidenta.json (${parsed.length} angajați)`);
-        saveLS(); render();
-      }catch(e){ alert('Eroare la import: '+e.message); }
-    };
-    reader.readAsText(file);
-  }
-  function importLog(file){
-    const reader = new FileReader();
-    reader.onload = () => { const lines = String(reader.result).split(/\r?\n/).filter(Boolean); pushHistory(); state.log = lines; saveLS(); render(); };
-    reader.readAsText(file);
-  }
-
-  // Init
-  async function init(){
-    loadLS(); saveLS(); render();
-
-    // Events
-    $('#btnExec').addEventListener('click', applyOperation);
-    $('#btnUndo').addEventListener('click', ()=>{ if(!undo()) alert('Nimic de anulat.'); });
-    $('#btnAdd').addEventListener('click', addEmployee);
-    $('#btnReset').addEventListener('click', resetDemo);
-    $('#btnExportJson').addEventListener('click', exportJson);
-    $('#btnExportLog').addEventListener('click', exportLog);
-    $('#fileData').addEventListener('change', (e)=>{ const f=e.target.files[0]; if(f) importJson(f); e.target.value=''; });
-    $('#fileLog').addEventListener('change', (e)=>{ const f=e.target.files[0]; if(f) importLog(f); e.target.value=''; });
-    $('#opOperator').addEventListener('change', render);
-    $('#btnSaveEndpoint').addEventListener('click', async ()=>{
-      const url = ($('#endpointUrl').value||'').trim();
-      state.endpoint = url; saveLS();
-      setStatus('Endpoint salvat. Încerc pull...');
-      await fetchRemote();
-    });
-    $('#btnSyncNow').addEventListener('click', async ()=>{
-      if (!state.endpoint){ alert('Setează întâi endpointul.'); return; }
-      await pushRemote('sync manual');
-      await fetchRemote();
-    });
-
-    // Auto-pull dacă există endpoint
-    if (state.endpoint){ await fetchRemote(); }
-  }
-
-  document.addEventListener('DOMContentLoaded', init);
-})();
-</script>
+  <script src="app.js"></script>
 </body>
 </html>
